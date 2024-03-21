@@ -41,7 +41,7 @@ namespace EmployeeInfoAPI.Infrastructure
                 employeeInformation.ContactNumber = employeeInformationDTO.ContactNumber;
                 employeeInformation.EmailAddress = employeeInformationDTO.EmailAddress;
                 employeeInformation.Position = employeeInformationDTO.Position;
-                employeeInformation.Gender = (EGender)employeeInformationDTO.Gender;
+                employeeInformation.Gender = employeeInformationDTO.Gender;
                 employeeInformation.DateCreated = DateTime.Now;
             }
             return await _employeeContext.SaveChangesAsync() > 0;
@@ -61,8 +61,13 @@ namespace EmployeeInfoAPI.Infrastructure
 
         public async Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderMalebyId()
         {
-            return await _employeeContext.EmployeeInformations.Where(g => g.Gender == EGender.Male).OrderBy(e => e.Id).ToListAsync();
+            return await _employeeContext.EmployeeInformations.Where(g => g.Gender == 0).OrderBy(e => e.Id).ToListAsync();
 
+        }
+
+        public async Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderFemalebyId()
+        {
+            return await _employeeContext.EmployeeInformations.Where(g => g.Gender == 1).OrderBy(e => e.Id).ToListAsync();
         }
 
 

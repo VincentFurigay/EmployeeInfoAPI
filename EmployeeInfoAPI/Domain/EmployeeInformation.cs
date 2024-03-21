@@ -4,6 +4,7 @@ namespace EmployeeInfoAPI.Domain
 {
     public class EmployeeInformation
     {
+        private int _gender;
         public int Id { get; set; }
 
         [Required(ErrorMessage = "FirstName is required")]
@@ -22,12 +23,24 @@ namespace EmployeeInfoAPI.Domain
         public string Position { get; set; }
 
         [Required(ErrorMessage = "Gender is required")]
-        public EGender Gender { get; set; }
+        public int Gender
+        {
+            get => _gender;
+
+            set
+            {
+                if(value == 0 || value == 1)
+                {
+                    _gender = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid gender value.");
+                }
+            }
+        }
+
         public DateTime DateCreated { get; set; }
-    }
-    public enum EGender
-    {
-        Male = 0, Female = 1
     }
 
 }

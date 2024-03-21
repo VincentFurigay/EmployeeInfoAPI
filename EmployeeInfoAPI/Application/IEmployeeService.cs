@@ -11,5 +11,6 @@ namespace EmployeeInfoAPI.Application
             Task<bool> UpdateEmployeeInformation(int id, EmployeeInformationDTO employeeInformationDTO);
             Task <bool> DeleteEmployee(int id);
             Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderMalebyId();
-        }
+            Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderFemalebyId();
+    }
 }

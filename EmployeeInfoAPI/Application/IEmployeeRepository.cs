@@ -3,7 +3,7 @@ using EmployeeInfoAPI.DTO;
 
 namespace EmployeeInfoAPI.Application
 {
-       public interface IEmployeeRepository
+      public interface IEmployeeRepository
         {
             Task<IEnumerable<EmployeeInformation>> GetAllEmployeeInformation();
             Task AddEmployeeInformation(EmployeeInformation employeeInformation);
@@ -12,6 +12,7 @@ namespace EmployeeInfoAPI.Application
             Task<bool> DeleteEmployee(int id);
 
             Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderMalebyId();
-
+            Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderFemalebyId();
+            
         }
 }

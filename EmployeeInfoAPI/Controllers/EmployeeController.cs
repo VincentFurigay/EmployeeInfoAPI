@@ -63,5 +63,13 @@ namespace EmployeeInfoAPI.Controllers
             return Ok(gender);
         }
 
+        [HttpGet("Gender-Female")]
+        public async Task<ActionResult<EmployeeInformation>> GetEmployeeGenderFemalebyId()
+        {
+            var gender = await _service.GetEmployeeGenderFemalebyId();
+            return Ok(gender);
+        }
+
+
     }
 }

@@ -19,7 +19,7 @@ namespace EmployeeInfoAPI.Application
 
         public async Task AddEmployeeInformation(EmployeeInformation employeeInformation)
         {
-              await _repository.AddEmployeeInformation(employeeInformation);   
+            await _repository.AddEmployeeInformation(employeeInformation);
         }
 
         public async Task<EmployeeInformation> GetEmployeeID(int id)
@@ -27,9 +27,9 @@ namespace EmployeeInfoAPI.Application
             return await _repository.GetEmployeeID(id);
         }
 
-        public async Task<bool> UpdateEmployeeInformation (int id, EmployeeInformationDTO employeeInformationDTO)
+        public async Task<bool> UpdateEmployeeInformation(int id, EmployeeInformationDTO employeeInformationDTO)
         {
-           return await _repository.UpdateEmployeeInformation(id, employeeInformationDTO);
+            return await _repository.UpdateEmployeeInformation(id, employeeInformationDTO);
         }
 
         public async Task<bool> DeleteEmployee(int id)
@@ -40,6 +40,11 @@ namespace EmployeeInfoAPI.Application
         public async Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderMalebyId()
         {
             return await _repository.GetEmployeeGenderMalebyId();
+        }
+
+        public async Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderFemalebyId()
+        {
+            return await _repository.GetEmployeeGenderFemalebyId();
         }
 
     }
