@@ -5,6 +5,7 @@ namespace EmployeeInfoAPI.DTO
     public class EmployeeInformationDTO
     {
         private int _gender;
+        private int _isActive;
         public int Id { get; set; }
 
         [Required(ErrorMessage = "FirstName is required")]
@@ -36,6 +37,22 @@ namespace EmployeeInfoAPI.DTO
                 else
                 {
                     throw new ArgumentException("Invalid gender value.");
+                }
+            }
+        }
+        public int IsActive
+        {
+            get => _isActive;
+
+            set
+            {
+                if (value == 0 || value == 1)
+                {
+                    _isActive = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid isActive value.");
                 }
             }
         }

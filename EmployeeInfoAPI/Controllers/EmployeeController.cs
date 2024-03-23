@@ -2,6 +2,7 @@
 using EmployeeInfoAPI.Domain;
 using EmployeeInfoAPI.DTO;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace EmployeeInfoAPI.Controllers
 {
@@ -68,6 +69,14 @@ namespace EmployeeInfoAPI.Controllers
         {
             var gender = await _service.GetEmployeeGenderFemalebyId();
             return Ok(gender);
+        }
+
+        [HttpGet("Search-Firstname")]
+        public async Task<ActionResult<EmployeeInformation>> GetEmployeebyFirstname(string firstname)
+        {
+
+            var f = await _service.GetEmployeebyFirstName(firstname);
+            return Ok(f);
         }
 
 

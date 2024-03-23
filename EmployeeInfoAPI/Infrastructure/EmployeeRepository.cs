@@ -42,13 +42,11 @@ namespace EmployeeInfoAPI.Infrastructure
                 employeeInformation.EmailAddress = employeeInformationDTO.EmailAddress;
                 employeeInformation.Position = employeeInformationDTO.Position;
                 employeeInformation.Gender = employeeInformationDTO.Gender;
+                employeeInformation.IsActive = employeeInformationDTO.IsActive;
                 employeeInformation.DateCreated = DateTime.Now;
             }
             return await _employeeContext.SaveChangesAsync() > 0;
         }
-
-
-
 
         public async Task<bool> DeleteEmployee (int id)
         {
@@ -68,6 +66,11 @@ namespace EmployeeInfoAPI.Infrastructure
         public async Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderFemalebyId()
         {
             return await _employeeContext.EmployeeInformations.Where(g => g.Gender == 1).OrderBy(e => e.Id).ToListAsync();
+        }
+
+        public async Task<IEnumerable<EmployeeInformation>> GetEmployeebyFirstName(string firstname)
+        {
+            return await _employeeContext.EmployeeInformations.Where(f => f.Firstname.Contains(firstname)).ToListAsync();
         }
 
 

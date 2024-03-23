@@ -1,5 +1,6 @@
 ﻿using EmployeeInfoAPI.Domain;
 using EmployeeInfoAPI.DTO;
+using System.Collections;
 
 namespace EmployeeInfoAPI.Application
 {
@@ -45,6 +46,11 @@ namespace EmployeeInfoAPI.Application
         public async Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderFemalebyId()
         {
             return await _repository.GetEmployeeGenderFemalebyId();
+        }
+
+        public async Task<IEnumerable<EmployeeInformation>> GetEmployeebyFirstName(string firstname)
+        {
+            return await _repository.GetEmployeebyFirstName(firstname);
         }
 
     }

@@ -13,6 +13,7 @@ namespace EmployeeInfoAPI.Application
 
             Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderMalebyId();
             Task<IEnumerable<EmployeeInformation>> GetEmployeeGenderFemalebyId();
+            Task<IEnumerable<EmployeeInformation>> GetEmployeebyFirstName(string firstname);
             
         }
 }
